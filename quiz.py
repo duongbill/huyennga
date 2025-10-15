@@ -727,7 +727,7 @@ def display_results_page():
 
 def main():
     st.set_page_config(layout="wide", initial_sidebar_state="expanded")
-    st.title("ĐỀ CƯƠง HSKK TRUNG CẤP III")
+    st.title("HYQ TTQCS III")
     if 'quiz_data' not in st.session_state:
         initialize_session_state()
     display_sidebar_navigation()
