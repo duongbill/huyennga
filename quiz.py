@@ -698,8 +698,17 @@ def display_question_content():
         time.sleep(1); st.rerun()
 
 def display_results_page():
-    st.title("🎉 KẾT THÚC BÀI KIỂM TRA!")
-    st.header(f"Tổng điểm: {st.session_state.score}/{st.session_state.num_questions}")
+    # Top row: title on left, "Làm lại Quiz" button on the right
+    left_col, right_col = st.columns([6, 1])
+    with left_col:
+        st.title("🎉 KẾT THÚC BÀI KIỂM TRA!")
+        st.header(f"Tổng điểm: {st.session_state.score}/{st.session_state.num_questions}")
+    with right_col:
+        # Put the button at the top-right; use a small spacer to align vertically
+        if st.button("Làm lại Quiz", type="primary"):
+            for key in list(st.session_state.keys()): del st.session_state[key]
+            st.rerun()
+
     st.markdown("---")
     st.subheader("Chi tiết các câu trả lời:")
 
@@ -720,10 +729,6 @@ def display_results_page():
         st.text(f"Đáp án đúng:\n{result.get('display_answer', '')}")
         st.markdown(f"**Kết quả: {status}**")
         st.markdown("---")
-
-    if st.button("Làm lại Quiz", type="primary"):
-        for key in list(st.session_state.keys()): del st.session_state[key]
-        st.rerun()
 
 def main():
     st.set_page_config(layout="wide", initial_sidebar_state="expanded")
