@@ -7,7 +7,7 @@ import random
 import os
 
 # --- THIẾT LẬP THỜI GIAN ---
-DEFAULT_TIME_LIMIT = 9
+DEFAULT_TIME_LIMIT = 12
 MATCH_TIME_LIMIT = 30
 
 # --- DỮ LIỆU CÂU HỎI ---
